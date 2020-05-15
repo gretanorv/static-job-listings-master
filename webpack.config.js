@@ -1,5 +1,7 @@
+/*jslint es6 */
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackTagsPlugin = require("html-webpack-tags-plugin");
 const Route = require("./config/routes");
 
 const Routes = Object.values(Route);
@@ -14,6 +16,11 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        loader: require.resolve("babel-loader"),
+      },
       {
         test: /\.hbs$/,
         loader: require.resolve("handlebars-loader"),
@@ -32,6 +39,21 @@ module.exports = {
           outputPath: "images/",
         },
       },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: require.resolve("file-loader"),
+            options: {
+              name: "main.css",
+            },
+          },
+          require.resolve("extract-loader"),
+          require.resolve("css-loader"),
+          require.resolve("postcss-loader"),
+          require.resolve("sass-loader"),
+        ],
+      },
     ],
   },
   plugins: [
@@ -45,6 +67,7 @@ module.exports = {
           filename: getFileNameAfterProcessing(file),
         })
     ),
+    new HtmlWebpackTagsPlugin({ tags: ["main.css"], append: true }),
   ],
   devServer: {
     compress: true,

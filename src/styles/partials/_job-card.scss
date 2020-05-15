@@ -1,0 +1,87 @@
+.job-card {
+  align-items: center;
+  background-color: $white;
+  border-radius: 5px;
+  box-shadow: 0px 10px 15px 0px $card-shadow;
+  display: flex;
+  height: 150px;
+  justify-content: flex-start;
+  margin: 10px auto;
+  width: 80%;
+
+  &__logo {
+    margin-left: 30px;
+    width: 80px;
+  }
+
+  &__content {
+    margin-left: 25px;
+  }
+
+  &__company {
+    display: flex;
+    font-size: 13px;
+    font-weight: 700;
+
+    &-tag {
+      border-radius: 50px;
+      color: $white;
+      font-size: 11px;
+      height: 15px;
+      margin-left: 10px;
+      padding: 2px 6px;
+
+      &--new {
+        background-color: $electric;
+        margin-left: 20px;
+      }
+
+      &--featured {
+        background-color: $dark-green;
+      }
+    }
+  }
+
+  &__title {
+    color: $dark-green;
+    font-size: 16px;
+    margin-top: -5px;
+
+    &:hover {
+      color: $electric;
+      cursor: pointer;
+    }
+  }
+
+  &__info {
+    color: $grey;
+    font-size: 13px;
+    margin-top: -10px;
+  }
+
+  &__tags {
+    display: flex;
+    margin-right: 40px;
+    margin-left: auto;
+
+    &-content {
+      background-color: $tag-background-light;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      margin-left: 10px;
+      padding: 3px 6px;
+
+      &:hover {
+        background-color: $tag-background-dark;
+        color: $white;
+      }
+    }
+  }
+
+  &:hover {
+    border-left: solid $electric 5px;
+    box-shadow: 0px 10px 20px 0px $card-shadow-darker;
+  }
+}
