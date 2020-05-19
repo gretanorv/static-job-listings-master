@@ -2,6 +2,7 @@
 @import "./variables";
 @import "./partials/job-card.scss";
 @import "./partials/header";
+@import "./partials/modal";
 
 body {
   background-color: $background-color;
@@ -11,6 +12,7 @@ body {
   line-height: 1.5;
   margin: 0;
   padding: 0;
+  padding-bottom: 70px;
   width: 100%;
 }
 
