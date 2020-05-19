@@ -27,6 +27,9 @@ module.exports = {
         options: {
           helperDirs: path.join(__dirname, "./handlebars-helpers"),
           inlineRequires: "/images/|/favicons/",
+          precompileOptions: {
+            knownHelpersOnly: false,
+          },
         },
       },
       {

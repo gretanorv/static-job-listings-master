@@ -2,10 +2,11 @@
   "name": "static-job-listings-master",
   "version": "1.0.0",
   "private": true,
-  "description": "![Design preview for the Job Listings coding challenge](./design/desktop-preview.jpg)",
+  "description": "![Design preview for the Job Listings coding challenge](./design/desktop-preview.jpg)",
   "main": "index.js",
   "dependencies": {
     "@babel/core": "7.6.3",
+    "@babel/preset-env": "7.6.3",
     "autoprefixer": "9.6.4",
     "babel-loader": "8.0.6",
     "css-loader": "3.2.0",
@@ -16,6 +17,8 @@
     "handlebars-utils": "1.0.6",
     "html-webpack-plugin": "3.2.0",
     "html-webpack-tags-plugin": "2.0.17",
+    "http-proxy": "1.18.1",
+    "jquery": "3.5.1",
     "jslint": "0.12.1",
     "node-sass": "4.14.1",
     "postcss-loader": "3.0.0",
@@ -25,9 +28,8 @@
     "webpack-cli": "3.3.11",
     "webpack-dev-server": "3.11.0"
   },
-  "devDependencies": {},
   "scripts": {
-    "start": "rimraf .dist && webpack-dev-server --hot",
+    "start": "rimraf .dist && webpack-dev-server",
     "build": "rimraf .dist && webpack"
   },
   "author": "",
