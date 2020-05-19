@@ -6,7 +6,7 @@
   display: flex;
   height: 150px;
   justify-content: flex-start;
-  margin: 10px auto;
+  margin: 20px auto;
   width: 80%;
 
   &__logo {
@@ -44,7 +44,8 @@
 
   &__title {
     color: $dark-green;
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: 700;
     margin-top: -5px;
 
     &:hover {
@@ -63,6 +64,7 @@
     display: flex;
     margin-right: 40px;
     margin-left: auto;
+    text-transform: capitalize;
 
     &-content {
       background-color: $tag-background-light;
