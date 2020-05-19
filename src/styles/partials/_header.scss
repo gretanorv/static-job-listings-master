@@ -1,5 +1,10 @@
-.header-image {
+.header {
+  position: relative;
+  z-index: -1;
+
+  &-image {
     background-color: $header-background;
     margin-bottom: 50px;
     width: 100%;
+  }
 }

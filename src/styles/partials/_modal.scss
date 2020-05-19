@@ -1,0 +1,71 @@
+.filter-modal {
+  background-color: $white;
+  border-radius: 5px;
+  box-shadow: 0px 10px 15px 0px rgba(93, 165, 164, 0.2);
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin: -85px auto 45px auto;
+  width: 80%;
+
+  &:hover {
+    box-shadow: 0px 10px 20px 0px rgba(93, 165, 164, 0.4);
+  }
+
+  &__box {
+    align-items: center;
+    background-color: $tag-background-light;
+    border-radius: 3px;
+    display: flex;
+    font-size: 13px;
+    font-weight: 600;
+    height: 20px;
+    justify-content: center;
+    margin-top: 15px;
+    padding: 3px 6px;
+  }
+
+  &__control {
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 30px;
+    margin-top: 7px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.filters-content {
+  margin-left: 0;
+  margin-right: auto;
+
+  &__control {
+    align-items: center;
+    background-color: $dark-grey;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    height: 25px;
+    margin-right: -6px;
+    width: 25px;
+
+    &-cancel {
+      margin: 0 auto;
+      width: 12px;
+    }
+  }
+
+  &__data {
+    padding-left: 5px;
+    padding-right: 10px;
+  }
+}
+
+.filter-wrapper {
+  margin-left: 30px;
+}
