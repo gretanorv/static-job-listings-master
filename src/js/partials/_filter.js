@@ -2,11 +2,12 @@ const filterBox = document.querySelectorAll(".job-card__tags-content");
 const filterModal = document.querySelector(".filter-modal");
 const clearFilters = document.querySelector(".filter-modal__control-clear");
 const filterText = document.querySelector(".filters-content__data");
-const removeFilterButton = document.querySelector(".filters-content__control");
 const filterModalBox = document.querySelector(".filter-modal__box");
+const filterModalBoxAll = document.querySelectorAll(".filter-modal__box");
 const jobCards = document.querySelectorAll(".job-card");
 const filterWrapper = document.querySelector(".filter-wrapper");
 const filtersContent = document.querySelector(".filters-content");
+var removeFilterButton = document.querySelectorAll(".filters-content__control");
 var filterList = [];
 
 filterBox.forEach((element) => {
@@ -14,18 +15,15 @@ filterBox.forEach((element) => {
     filterModal.classList.remove("hide");
     addToFilterList(element);
     addFilterToModal(element.innerHTML);
-    filterSelection(element.innerHTML);
-  });
-
-  removeFilterButton.addEventListener("click", () => {
-    // filterModalBox.classList.add("hide");
-    unFilterSelection(element.innerHTML);
+    filterSelection();
   });
 });
 
 clearFilters.addEventListener("click", () => {
   filterModal.classList.add("hide");
-  filterSelection("all");
+  jobCards.forEach((card) => {
+    card.classList.remove("hide");
+  });
 });
 
 const addFilterToModal = (text) => {
@@ -36,6 +34,16 @@ const addFilterToModal = (text) => {
     cloneFilterBox.children[0].children[0].innerHTML = text;
     filterWrapper.appendChild(cloneFilterBox);
   }
+  var removeFilterButton = document.querySelectorAll(
+    ".filters-content__control"
+  );
+  console.log(removeFilterButton);
+
+  removeFilterButton.forEach((element) => {
+    element.addEventListener("click", () => {
+      element.closest(".filter-modal__box").classList.add("hide");
+    });
+  });
 };
 
 // removeFilterButton.addEventListener("click", () => {
@@ -50,11 +58,8 @@ const addToFilterList = (item) => {
 };
 
 //
-function filterSelection(c) {
-  if (c == "all") c = "";
-
+function filterSelection() {
   for (i = 0; i < jobCards.length; i++) {
-    let curr = [];
     jobCards[i].classList.add("hide");
 
     filterList.every((filter) => {
@@ -67,7 +72,8 @@ function filterSelection(c) {
   }
 }
 
-function unFilterSelection(c) {
+function unFilterSelection(element) {
+  console.log(element);
   for (i = 0; i < jobCards.length; i++) {
     jobCards[i].classList.remove("hide");
   }
