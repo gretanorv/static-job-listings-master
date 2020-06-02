@@ -1,1 +1,1 @@
-console.log("yes");
+import "./partials/_filter";
