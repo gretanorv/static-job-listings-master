@@ -3,10 +3,11 @@
   border-radius: 5px;
   box-shadow: 0px 10px 15px 0px rgba(93, 165, 164, 0.2);
   display: flex;
-  height: 60px;
+  height: auto;
   justify-content: space-between;
   margin: 0 auto;
   margin: -85px auto 45px auto;
+  padding-bottom: 5px;
   width: 80%;
 
   &:hover {
@@ -22,6 +23,7 @@
     font-weight: 600;
     height: 20px;
     justify-content: center;
+    margin-right: 20px;
     margin-top: 15px;
     padding: 3px 6px;
   }
@@ -67,5 +69,7 @@
 }
 
 .filter-wrapper {
+  display: flex;
+  flex-wrap: wrap;
   margin-left: 30px;
 }

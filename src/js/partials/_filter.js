@@ -3,8 +3,10 @@ const filterModal = document.querySelector(".filter-modal");
 const clearFilters = document.querySelector(".filter-modal__control-clear");
 const filterText = document.querySelector(".filters-content__data");
 const removeFilterButton = document.querySelector(".filters-content__control");
-const removeFilter = document.querySelector(".filter-modal__box");
+const filterModalBox = document.querySelector(".filter-modal__box");
 const jobCards = document.querySelectorAll(".job-card");
+const filterWrapper = document.querySelector(".filter-wrapper");
+const filtersContent = document.querySelector(".filters-content");
 var filterList = [];
 
 filterBox.forEach((element) => {
@@ -17,7 +19,7 @@ filterBox.forEach((element) => {
   });
 
   removeFilterButton.addEventListener("click", () => {
-    // removeFilter.classList.add("hide");
+    // filterModalBox.classList.add("hide");
     unFilterSelection(element.innerHTML);
   });
 });
@@ -28,11 +30,14 @@ clearFilters.addEventListener("click", () => {
 });
 
 const addFilterToModal = (text) => {
-  filterText.innerHTML = text;
+  // filterText.innerHTML = text;
+  var cloneFilterBox = filterModalBox.cloneNode(true);
+  cloneFilterBox.children[0].children[0].innerHTML = text;
+  filterWrapper.appendChild(cloneFilterBox);
 };
 
 // removeFilterButton.addEventListener("click", () => {
-//   // removeFilter.classList.add("hide");
+//   // filterModalBox.classList.add("hide");
 //   filterSelection(element.innerHTML);
 // });
 
