@@ -68,9 +68,9 @@ clearFilters.addEventListener("click", () => {
 function unFilterSelection(text) {
   for (i = 0; i < jobCards.length; i++) {
     if (Array.from(jobCards[i].classList).includes(text)) {
-      jobCards[i].classList.remove("hide");
       var index = filterList.indexOf(text);
       if (index !== -1) filterList.splice(index, 1);
+      filterSelection();
     }
   }
 }
