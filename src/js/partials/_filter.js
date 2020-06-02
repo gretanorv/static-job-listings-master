@@ -35,7 +35,10 @@ const addFilterToModal = (text) => {
 
   removeFilterButton.forEach((element) => {
     element.addEventListener("click", () => {
-      element.closest(".filter-modal__box").classList.add("hide");
+      var parent = element.closest(".filter-modal__box");
+      parent.classList.add("hide");
+      unFilterSelection(parent.children[0].children[0].innerHTML);
+      if (filterList.length === 0) filterModal.classList.add("hide");
     });
   });
 };
@@ -53,7 +56,6 @@ function filterSelection() {
 }
 
 clearFilters.addEventListener("click", () => {
-  console.log("here");
   filterModal.classList.add("hide");
   filterList = [];
   filterModalBoxAll = document.querySelectorAll(".filter-modal__box");
@@ -63,9 +65,12 @@ clearFilters.addEventListener("click", () => {
   });
 });
 
-function unFilterSelection(element) {
-  console.log(element);
+function unFilterSelection(text) {
   for (i = 0; i < jobCards.length; i++) {
-    jobCards[i].classList.remove("hide");
+    if (Array.from(jobCards[i].classList).includes(text)) {
+      jobCards[i].classList.remove("hide");
+      var index = filterList.indexOf(text);
+      if (index !== -1) filterList.splice(index, 1);
+    }
   }
 }
