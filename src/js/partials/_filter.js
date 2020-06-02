@@ -12,9 +12,8 @@ var filterList = [];
 filterBox.forEach((element) => {
   element.addEventListener("click", () => {
     filterModal.classList.remove("hide");
-    addFilterToModal(element.innerHTML);
-    //call function to push to list
     addToFilterList(element);
+    addFilterToModal(element.innerHTML);
     filterSelection(element.innerHTML);
   });
 
@@ -30,10 +29,13 @@ clearFilters.addEventListener("click", () => {
 });
 
 const addFilterToModal = (text) => {
-  // filterText.innerHTML = text;
-  var cloneFilterBox = filterModalBox.cloneNode(true);
-  cloneFilterBox.children[0].children[0].innerHTML = text;
-  filterWrapper.appendChild(cloneFilterBox);
+  if (filterList.length === 1) {
+    filterText.innerHTML = text;
+  } else {
+    var cloneFilterBox = filterModalBox.cloneNode(true);
+    cloneFilterBox.children[0].children[0].innerHTML = text;
+    filterWrapper.appendChild(cloneFilterBox);
+  }
 };
 
 // removeFilterButton.addEventListener("click", () => {
@@ -42,7 +44,6 @@ const addFilterToModal = (text) => {
 // });
 
 const addToFilterList = (item) => {
-  console.log(filterList);
   if (!filterList.includes(item)) {
     filterList.push(item.innerHTML);
   }
@@ -50,12 +51,19 @@ const addToFilterList = (item) => {
 
 //
 function filterSelection(c) {
-  //padaryti kad i filterList detu ir tada is jo forEach praleistu zemiau esanti koda
   if (c == "all") c = "";
+
   for (i = 0; i < jobCards.length; i++) {
+    let curr = [];
     jobCards[i].classList.add("hide");
-    if (jobCards[i].className.indexOf(c) > -1)
-      jobCards[i].classList.remove("hide");
+
+    filterList.every((filter) => {
+      if (
+        filterList.every((v) => Array.from(jobCards[i].classList).includes(v))
+      ) {
+        jobCards[i].classList.remove("hide");
+      }
+    });
   }
 }
 
