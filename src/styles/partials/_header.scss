@@ -6,5 +6,19 @@
     background-color: $header-background;
     margin-bottom: 50px;
     width: 100%;
+
+    &--mobile {
+      display: none;
+
+      @include mq-until(md) {
+        background-color: $header-background;
+        display: inline;
+        margin-bottom: 40px;
+      }
+    }
+
+    @include mq-until(md) {
+      display: none;
+    }
   }
 }
