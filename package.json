@@ -30,7 +30,7 @@
   },
   "scripts": {
     "start": "rimraf .dist && webpack-dev-server",
-    "build": "rimraf .dist && webpack"
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC"
