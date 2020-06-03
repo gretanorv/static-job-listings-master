@@ -39,6 +39,10 @@
       text-decoration: underline;
     }
   }
+
+  @include mq-until(md) {
+    padding-bottom: 7px;
+  }
 }
 
 .filters-content {
@@ -47,7 +51,7 @@
 
   &__control {
     align-items: center;
-    background-color: $dark-grey;
+    background-color: $electric;
     border-bottom-right-radius: 3px;
     border-top-right-radius: 3px;
     cursor: pointer;
@@ -55,6 +59,10 @@
     height: 25px;
     margin-right: -6px;
     width: 25px;
+
+    &:hover {
+      background-color: $dark-grey;
+    }
 
     &-cancel {
       margin: 0 auto;
