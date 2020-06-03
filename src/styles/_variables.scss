@@ -1,0 +1,34 @@
+$breakpoints: (
+    sm: 576px,
+    md: 700px,
+    lg: 992px,
+);
+
+@mixin mq-until($size-name, $breakpoints-map: $breakpoints) {
+    @media (max-width: map-get($breakpoints-map, $size-name) - 1) {
+        @content;
+    }
+}
+
+@mixin mq-from($size-name, $breakpoints-map: $breakpoints) {
+    @media (min-width: map-get($breakpoints-map, $size-name)) {
+        @content;
+    }
+}
+
+$background-color: #f0fafb;
+$white: #fff;
+$card-shadow: rgba(12, 19, 19, 0.2);
+$card-shadow-darker: rgba(93, 165, 164, 0.4);
+$electric: #5aa6a2;
+$grey: #8b9493;
+$light-grey: #e0e5e4;
+$dark-green: #353a3a;
+$tag-background-light: #eef6f8;
+$tag-background-dark: #5ca8a6;
+$header-background: #5da5a4;
+$dark-grey: #2a3636;
+
+$Raleway: "Raleway", sans-serif;
+$Montserrat: "Montserrat", sans-serif;
+$Spartan: "Spartan", sans-serif;

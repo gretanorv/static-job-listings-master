@@ -1,1 +1,36 @@
-<img class="test" src="../../images/bg-header-desktop.svg" alt="">
+<div class="job-card {{filters}}">
+    <img src={{logo}} alt="{{companyLogoAlt}}" class="job-card__logo">
+    <div class="job-card__content">
+        <div class="job-card__company">
+            <p class="job-card__company-name">{{company}}</p>
+            {{#if new}}
+            <p class="job-card__company-tag job-card__company-tag--new">NEW!</p>
+            {{/if}}
+            {{#if featured}}
+            <p class="job-card__company-tag job-card__company-tag--featured">FEATURED</p>
+            {{/if}}
+        </div>
+        <h3 class="job-card__title">{{position}}</h3>
+        <p class="job-card__info">{{postedAt}} · {{contract}} · {{location}}</p>
+    </div>
+    <hr class="job-card__separator--mobile">
+    <div class="job-card__tags">
+        <p class="job-card__tags-content" data-role="{{role}}">{{role}}</p>
+        <p class="job-card__tags-content" data-level="{{level}}">{{level}}</p>
+        {{#if languages}}
+        <p class="job-card__tags-content" data-languages="{{languages}}">{{languages}}</p>
+        {{/if}}
+        {{#if languages2}}
+        <p class="job-card__tags-content" data-languages="{{languages2}}">{{languages2}}</p>
+        {{/if}}
+        {{#if languages3}}
+        <p class="job-card__tags-content" data-languages="{{languages3}}">{{languages3}}</p>
+        {{/if}}
+        {{#if tools}}
+        <p class="job-card__tags-content" data-tools="{{tools}}">{{tools}}</p>
+        {{/if}}
+        {{#if tools2}}
+        <p class="job-card__tags-content" data-tools="{{tools2}}">{{tools2}}</p>
+        {{/if}}
+    </div>
+</div>

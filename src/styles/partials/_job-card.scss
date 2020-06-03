@@ -1,0 +1,125 @@
+.job-card {
+  align-items: center;
+  background-color: $white;
+  border-radius: 5px;
+  box-shadow: 0px 10px 15px 0px $card-shadow;
+  display: flex;
+  height: 150px;
+  justify-content: flex-start;
+  margin: 20px auto;
+  width: 80%;
+
+  @include mq-until(md) {
+    align-items: flex-start;
+    flex-direction: column;
+    height: auto;
+    margin-bottom: 40px;
+    padding-top: 30px;
+    position: relative;
+  }
+
+  &__separator--mobile {
+    border-radius: 5px;
+    border: 1.5px solid $light-grey;
+    display: none;
+    width: 90%;
+
+    @include mq-until(md) {
+      display: inline;
+    }
+  }
+
+  &__logo {
+    flex-shrink: 0;
+    margin-left: 30px;
+    width: 80px;
+
+    @include mq-until(lg) {
+      width: 50px;
+    }
+
+    @include mq-until(md) {
+      position: absolute;
+      left: -10px;
+      top: -20px;
+    }
+  }
+
+  &__content {
+    margin-left: 25px;
+  }
+
+  &__company {
+    display: flex;
+    font-size: 13px;
+    font-weight: 700;
+
+    &-tag {
+      border-radius: 50px;
+      color: $white;
+      font-size: 11px;
+      height: 15px;
+      margin-left: 10px;
+      padding: 2px 6px;
+
+      &--new {
+        background-color: $electric;
+        margin-left: 20px;
+      }
+
+      &--featured {
+        background-color: $dark-green;
+      }
+    }
+  }
+
+  &__title {
+    color: $dark-green;
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: -5px;
+
+    &:hover {
+      color: $electric;
+      cursor: pointer;
+    }
+  }
+
+  &__info {
+    color: $grey;
+    font-size: 13px;
+    margin-top: -10px;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 40px;
+    margin-left: auto;
+    text-transform: capitalize;
+
+    &-content {
+      background-color: $tag-background-light;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      margin-left: 10px;
+      padding: 3px 6px;
+
+      &:hover {
+        background-color: $tag-background-dark;
+        color: $white;
+      }
+    }
+
+    @include mq-until(md) {
+      margin: 0 40px 0 10px;
+    }
+  }
+
+  &:hover {
+    border-left: solid $electric 5px;
+    box-shadow: 0px 10px 20px 0px $card-shadow-darker;
+  }
+}
